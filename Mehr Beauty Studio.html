@@ -1,0 +1,354 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mehr Beauty Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: split hero with stacked arches, full-bleed plum bands between light sections, one rose-gold accent used for actions. */
+:root{
+  --bg:#fbf3f3; --surface:#ffffff; --fg:#2b1422; --muted:#6f5762; --line:#ecd9dd;
+  --plum:#4a1a3a; --plum-fg:#fbeef2; --rose:#c46a85; --rose-soft:#f3d5dd; --gold:#b98a4e;
+  --shadow:0 18px 40px -24px rgba(74,26,58,.45);
+  --font-display:'Bodoni Moda','Didot','Times New Roman',serif;
+  --font-body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#190c15; --surface:#251320; --fg:#f7e9ee; --muted:#c3a6b2; --line:#3b2433;
+  --plum:#2e1226; --plum-fg:#fbeef2; --rose:#e08aa4; --rose-soft:#43202f; --gold:#d4a76a;
+  --shadow:0 18px 40px -24px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#190c15; --surface:#251320; --fg:#f7e9ee; --muted:#c3a6b2; --line:#3b2433;
+  --plum:#2e1226; --plum-fg:#fbeef2; --rose:#e08aa4; --rose-soft:#43202f; --gold:#d4a76a;
+  --shadow:0 18px 40px -24px rgba(0,0,0,.8); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(56px,9vw,104px)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+.sec-head{display:grid;gap:12px;max-width:620px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(32px,5vw,52px)}
+.sec-head p{color:var(--muted)}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;background:var(--rose);color:#2b1422;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px var(--rose)}
+.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
+.btn.ghost:hover{box-shadow:none;border-color:var(--rose)}
+
+/* top bar */
+.top{background:var(--plum);color:var(--plum-fg);font-size:13px;padding-block:8px}
+.top .wrap{display:flex;gap:8px 24px;justify-content:space-between;flex-wrap:wrap}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--font-display);font-size:26px;text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.logo i{font-size:13px;font-family:var(--font-body);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+.nav .btn{padding:10px 20px;font-size:14px}
+@media(max-width:820px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(56px,8vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(44px,7.4vw,88px);letter-spacing:-.02em;margin:18px 0 22px}
+.hero h1 em{color:var(--rose);font-weight:500}
+.hero .lede{color:var(--muted);font-size:18px;max-width:46ch}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.facts div{display:grid;gap:2px}
+.facts b{font-family:var(--font-display);font-size:30px;font-weight:500}
+.facts span{font-size:13px;color:var(--muted)}
+
+.arches{position:relative;aspect-ratio:1/1.12;width:100%;max-width:520px;margin-inline:auto}
+.arch{position:absolute;border-radius:999px 999px 24px 24px;overflow:hidden;box-shadow:var(--shadow)}
+.arch svg{width:100%;height:100%;display:block}
+.a1{left:0;top:14%;width:52%;height:84%}
+.a2{right:0;top:0;width:44%;height:60%}
+.a3{right:6%;bottom:0;width:36%;height:34%;border-radius:999px}
+.badge{position:absolute;left:-2%;bottom:6%;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);display:grid;gap:2px;font-size:13px;color:var(--muted)}
+.badge b{font-family:var(--font-display);font-size:18px;color:var(--fg);font-weight:500}
+
+/* marquee */
+.marquee{background:var(--plum);color:var(--plum-fg);overflow:hidden;padding-block:18px}
+.marquee .track{display:flex;gap:44px;width:max-content;animation:slide 38s linear infinite;font-family:var(--font-display);font-size:24px;font-style:italic}
+.marquee span::after{content:"✦";margin-left:44px;color:var(--rose);font-style:normal;font-size:16px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee .track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:14px;align-content:start;transition:transform .25s,box-shadow .25s,border-color .25s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--rose)}
+.ico{width:54px;height:54px;border-radius:50%;background:var(--rose-soft);display:grid;place-items:center;color:var(--rose)}
+.ico svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:25px}
+.svc p{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+
+/* bridal */
+.bridal{background:var(--plum);color:var(--plum-fg)}
+.bridal .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:860px){.bridal .wrap{grid-template-columns:1fr}}
+.bridal h2{font-size:clamp(36px,5.4vw,62px);margin:14px 0 18px}
+.bridal p{color:color-mix(in srgb,var(--plum-fg) 78%,transparent);max-width:48ch}
+.bridal ul{list-style:none;padding:0;margin:26px 0 32px;display:grid;gap:12px}
+.bridal li{display:flex;gap:12px;align-items:center}
+.bridal li::before{content:"";width:22px;height:1px;background:var(--gold)}
+.pkgs{display:grid;gap:16px}
+.pkg{border:1px solid color-mix(in srgb,var(--plum-fg) 22%,transparent);border-radius:20px;padding:24px;display:grid;gap:8px}
+.pkg.hot{background:color-mix(in srgb,var(--plum-fg) 9%,transparent);border-color:var(--gold)}
+.pkg h3{font-size:26px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.pkg h3 small{font-family:var(--font-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.pkg p{font-size:15px}
+
+/* men */
+.men{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.mcard{border-radius:20px;padding:24px 22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;background:var(--surface);border:1px solid var(--line);transition:background .25s,color .25s}
+.mcard:hover{background:var(--plum);color:var(--plum-fg)}
+.mcard:hover small{color:var(--gold)}
+.mcard h3{font-size:23px}
+.mcard small{color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+
+/* offers */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.offer{border-radius:24px;padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;position:relative;overflow:hidden;color:#fff;isolation:isolate}
+.offer::before{content:"";position:absolute;inset:0;z-index:-1}
+.offer:nth-child(1)::before{background:radial-gradient(circle at 80% 0,#e7a0b5,transparent 55%),linear-gradient(160deg,#6a2650,#3a1230)}
+.offer:nth-child(2)::before{background:radial-gradient(circle at 10% 0,#d9b078,transparent 55%),linear-gradient(160deg,#7a3a4c,#3a1230)}
+.offer:nth-child(3)::before{background:radial-gradient(circle at 90% 100%,#cf7d97,transparent 55%),linear-gradient(160deg,#52204a,#2a0f27)}
+.offer small{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:#f3d5dd}
+.offer h3{font-size:30px}
+.offer p{font-size:14px;color:#f6e4ea}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.why div{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:8px}
+.why h3{font-size:24px}
+.why p{color:var(--muted);font-size:15px}
+.brands{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line);align-items:center;color:var(--muted);font-family:var(--font-display);font-size:22px}
+.brands small{font-family:var(--font-body);font-size:12px;letter-spacing:.16em;text-transform:uppercase;width:100%}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.rev{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:16px;align-content:space-between}
+.rev q{font-family:var(--font-display);font-size:21px;line-height:1.35;quotes:none}
+.rev footer{display:flex;gap:12px;align-items:center;font-size:14px;color:var(--muted)}
+.rev .av{width:38px;height:38px;border-radius:50%;background:var(--rose-soft);color:var(--rose);display:grid;place-items:center;font-weight:600}
+.stars{color:var(--gold);letter-spacing:3px;font-size:14px}
+
+/* booking */
+.book{background:var(--rose-soft)}
+.book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:860px){.book .wrap{grid-template-columns:1fr}}
+.book h2{font-size:clamp(34px,5vw,56px);margin:14px 0 16px}
+.book p{color:var(--muted)}
+.contact{margin-top:28px;display:grid;gap:10px;font-size:15px}
+.contact b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+form{background:var(--surface);border-radius:26px;padding:clamp(22px,4vw,36px);display:grid;gap:16px;box-shadow:var(--shadow)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+input,select{font:inherit;font-weight:400;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0;width:100%}
+form .btn{justify-content:center;width:100%}
+.note{font-size:12px;color:var(--muted)}
+
+/* faq */
+.faq{max-width:780px;display:grid}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-family:var(--font-display);font-size:22px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--rose);font-size:26px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:12px;max-width:62ch}
+
+footer.site{background:var(--plum);color:var(--plum-fg);padding-block:56px 36px}
+footer.site .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+@media(max-width:720px){footer.site .cols{grid-template-columns:1fr}}
+footer.site h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px;font-weight:600}
+footer.site a,footer.site li{color:color-mix(in srgb,var(--plum-fg) 80%,transparent);text-decoration:none;font-size:15px}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer.site .big{font-family:var(--font-display);font-size:32px;margin-bottom:10px}
+footer.site .legal{margin-top:40px;padding-top:20px;border-top:1px solid color-mix(in srgb,var(--plum-fg) 18%,transparent);font-size:13px;color:color-mix(in srgb,var(--plum-fg) 60%,transparent)}
+</style>
+
+<div class="top"><div class="wrap"><span>Open every day, 9:00 AM – 10:00 PM</span><span>Bridal trials by appointment</span></div></div>
+
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Mehr <i>Beauty Studio</i></a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#bridal">Bridal</a></li>
+    <li><a href="#men">For men</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="btn" href="#book">Book now</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Parlour &amp; unisex salon</span>
+    <h1>Walk in tired. Walk out <em>glowing.</em></h1>
+    <p class="lede">Hair, skin, makeup and bridal care from trained stylists, using professional products in a clean, calm space. One roof for the whole family.</p>
+    <div class="cta"><a class="btn" href="#book">Book an appointment</a><a class="btn ghost" href="#services">See services</a></div>
+    <div class="facts">
+      <div><b>7 days</b><span>open, 9 AM to 10 PM</span></div>
+      <div><b>Free</b><span>skin consultation</span></div>
+      <div><b>Trial</b><span>before every bridal booking</span></div>
+    </div>
+  </div>
+  <div class="arches" aria-hidden="true">
+    <div class="arch a1"><svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9a9bd"/><stop offset="1" stop-color="#7a2e58"/></linearGradient></defs><rect width="200" height="260" fill="url(#g1)"/><circle cx="100" cy="92" r="46" fill="#f8e3d0" opacity=".9"/><path d="M40 260c0-62 28-96 60-96s60 34 60 96z" fill="#3a1230" opacity=".85"/><path d="M58 96c4-40 30-58 52-52 28 6 40 34 34 70-8-30-24-44-44-44-16 0-34 8-42 26z" fill="#2a0e25"/></svg></div>
+    <div class="arch a2"><svg viewBox="0 0 160 170" preserveAspectRatio="xMidYMid slice"><rect width="160" height="170" fill="#e3b680"/><circle cx="80" cy="150" r="62" fill="#c46a85" opacity=".75"/><circle cx="80" cy="150" r="38" fill="#f3d5dd" opacity=".85"/><path d="M80 150V30M80 90c-20-8-30-24-30-40M80 70c20-8 30-24 30-40" stroke="#4a1a3a" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+    <div class="arch a3"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#4a1a3a"/><circle cx="50" cy="50" r="26" fill="none" stroke="#d4a76a" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="#d4a76a"/></svg></div>
+    <div class="badge"><b>Bridal trial included</b>Book 15+ days ahead</div>
+  </div>
+</div></section>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>Hair spa</span><span>Keratin</span><span>Hair colour</span><span>Bridal makeup</span><span>Gold facial</span><span>Mehndi</span><span>Nail art</span><span>Rica wax</span><span>Body polishing</span>
+  <span>Hair spa</span><span>Keratin</span><span>Hair colour</span><span>Bridal makeup</span><span>Gold facial</span><span>Mehndi</span><span>Nail art</span><span>Rica wax</span><span>Body polishing</span>
+</div></div>
+
+<section class="band" id="services"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">For women</span><h2>Everything you come in for, done properly</h2><p>Pick a service to see what is included. Every treatment starts with a short chat about your hair, skin and the occasion.</p></div>
+  <div class="grid">
+    <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 17M8.5 16.5 20 7"/></svg></div><h3>Hair treatments</h3><p>Smoothening, keratin, botox and nanoplastia that suit your hair type, not a one-size routine.</p><div class="tags"><span>Keratin</span><span>Smoothening</span><span>Hair spa</span><span>Colour</span></div></article>
+    <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 6 6 10a6 6 0 0 1-12 0c0-4 3-6 6-10z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg></div><h3>Facials &amp; cleanup</h3><p>Fruit, gold, hydra and organic facials, picked after a free skin check.</p><div class="tags"><span>Hydra</span><span>Gold</span><span>Anti-ageing</span><span>Acne care</span></div></article>
+    <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20 14 10"/><path d="m14 10 3-3 3 3-3 3z"/><path d="M5 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg></div><h3>Party makeup</h3><p>HD and airbrush looks for engagements, receptions and nights out, built to last through photos.</p><div class="tags"><span>HD</span><span>Airbrush</span><span>Hairstyling</span></div></article>
+    <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-7-6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 4-3 7-7 10z"/></svg></div><h3>Waxing &amp; threading</h3><p>Rica, liposoluble and regular wax. Gentle options are always available for sensitive skin.</p><div class="tags"><span>Rica</span><span>Bikini</span><span>Threading</span><span>Bleach</span></div></article>
+    <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 21v-9l-3-4V3h5v5l-2 4"/><path d="M15 21v-6h4v6z"/><path d="M17 15v-3"/></svg></div><h3>Nails</h3><p>Classic and spa manicure and pedicure, gel polish, extensions and nail art.</p><div class="tags"><span>Gel polish</span><span>Extensions</span><span>Nail art</span></div></article>
+    <article class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M5 8l3 2M19 8l-3 2"/><circle cx="12" cy="14" r="4"/><path d="M8 20h8"/></svg></div><h3>Body care &amp; mehndi</h3><p>Body polishing for a bright, even finish, and mehndi artists for festivals and weddings.</p><div class="tags"><span>Body polish</span><span>Mehndi</span><span>Spa</span></div></article>
+  </div>
+</div></section>
+
+<section class="band bridal" id="bridal"><div class="wrap">
+  <div>
+    <span class="eyebrow">Bridal</span>
+    <h2>Your wedding look, rehearsed before the day</h2>
+    <p>We plan your skin prep, makeup, hair and draping together so nothing is new on the morning. A trial is part of every package.</p>
+    <ul><li>Bridal, engagement and reception makeup</li><li>Hairstyling and saree draping</li><li>Pre-bridal skin and hair care</li><li>Nail art and mehndi</li></ul>
+    <a class="btn" href="#book">Plan my bridal look</a>
+  </div>
+  <div class="pkgs">
+    <div class="pkg"><h3>Pre-bridal <small>4 to 6 weeks</small></h3><p>Facials, body polish, hair spa and waxing spread across the weeks before your date.</p></div>
+    <div class="pkg hot"><h3>Bridal day <small>Most booked</small></h3><p>Trial look, HD or airbrush makeup, hairstyle, draping and nail art on the wedding morning.</p></div>
+    <div class="pkg"><h3>Family &amp; guests <small>Group</small></h3><p>Party makeup and styling for mother, sisters and friends, scheduled back to back.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="men"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">For men</span><h2>Sharp cuts and a proper reset</h2><p>Grooming and spa treatments for everyday upkeep and for the weeks before a wedding.</p></div>
+  <div class="men">
+    <div class="mcard"><small>Cut</small><h3>Haircut &amp; styling</h3></div>
+    <div class="mcard"><small>Skin</small><h3>Facial &amp; cleanup</h3></div>
+    <div class="mcard"><small>Groom</small><h3>Pre-wedding grooming</h3></div>
+    <div class="mcard"><small>Relax</small><h3>Head &amp; body massage</h3></div>
+    <div class="mcard"><small>Hands &amp; feet</small><h3>Mani-pedi</h3></div>
+  </div>
+</div></section>
+
+<section class="band" id="offers" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Offers</span><h2>Current treatments on offer</h2><p>Sample offers shown here. Replace with your own before going live.</p></div>
+  <div class="offers">
+    <div class="offer"><small>Hair</small><h3>Olaplex repair</h3><p>Rebuild damaged, coloured or heat-styled hair.</p></div>
+    <div class="offer"><small>Hair</small><h3>Nanoplastia</h3><p>Smooth, frizz-free hair that lasts for months.</p></div>
+    <div class="offer"><small>Skin</small><h3>Hydra facial</h3><p>Deep cleanse and hydration for a visible glow.</p></div>
+  </div>
+</div></section>
+
+<section class="band" style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Why Mehr</span><h2>Small details, done every time</h2></div>
+  <div class="why">
+    <div><h3>Trained stylists</h3><p>Our team keeps up with current techniques and tells you what will suit you.</p></div>
+    <div><h3>Clean by routine</h3><p>Tools are sanitised between clients and products are opened in front of you.</p></div>
+    <div><h3>Fair pricing</h3><p>A clear price before we start, for men and women, with no add-ons you did not ask for.</p></div>
+    <div><h3>Easy to reach</h3><p>Central location, open late, and bookings on WhatsApp.</p></div>
+  </div>
+  <div class="brands"><small>Professional brands we work with</small><span>L'Oréal Professionnel</span><span>Lotus</span><span>O3+</span><span>Rica</span><span>VLCC</span></div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Kind words</span><h2>Ask the people in the chair</h2><p>Sample reviews. Swap in real Google reviews from your own clients.</p></div>
+  <div class="reviews">
+    <article class="rev"><div class="stars">★★★★★</div><q>Good products at a fair price. I keep coming back for my hair spa.</q><footer><span class="av">A</span>Aarti S.</footer></article>
+    <article class="rev"><div class="stars">★★★★★</div><q>Friendly staff and a very clean space. My bridal trial was calm and on time.</q><footer><span class="av">R</span>Ritika M.</footer></article>
+    <article class="rev"><div class="stars">★★★★★</div><q>Booked my husband and myself on the same evening. Both of us were happy.</q><footer><span class="av">N</span>Neha K.</footer></article>
+  </div>
+</div></section>
+
+<section class="band book" id="book"><div class="wrap">
+  <div>
+    <span class="eyebrow">Book</span>
+    <h2>Pick a slot. We confirm on WhatsApp.</h2>
+    <p>Fill in the form and your message opens in WhatsApp, ready to send. Walk-ins are welcome when a chair is free.</p>
+    <div class="contact">
+      <div><b>Visit</b>Your address, Sector, City</div>
+      <div><b>Call</b>+91 98XXX XXXXX</div>
+      <div><b>Hours</b>Monday to Sunday, 9:00 AM – 10:00 PM</div>
+    </div>
+  </div>
+  <form id="bookForm" autocomplete="off">
+    <label for="name">Your name<input id="name" type="text" placeholder="e.g. Priya Sharma"></label>
+    <label for="service">Service<select id="service">
+      <option>Hair treatment</option><option>Facial &amp; cleanup</option><option>Party makeup</option><option>Bridal makeup</option><option>Waxing &amp; threading</option><option>Manicure &amp; pedicure</option><option>Men's grooming</option>
+    </select></label>
+    <div class="row">
+      <label for="date">Date<input id="date" type="date"></label>
+      <label for="time">Time<select id="time"><option>10:00 AM</option><option>12:00 PM</option><option>2:00 PM</option><option>4:00 PM</option><option>6:00 PM</option><option>8:00 PM</option></select></label>
+    </div>
+    <a class="btn" id="send" href="#book" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <p class="note" id="hint">Enter your name to continue.</p>
+  </form>
+</div></section>
+
+<section class="band" id="faq"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Questions</span><h2>Before you book</h2></div>
+  <div class="faq">
+    <details open><summary>How do I book an appointment?</summary><p>Use the form above or message us on WhatsApp. We reply with a confirmed time.</p></details>
+    <details><summary>Do you offer bridal trials?</summary><p>Yes. Every bridal package includes a trial so you can try the look and adjust it.</p></details>
+    <details><summary>Which facial is best for glowing skin?</summary><p>It depends on your skin type. A hydra facial, organic facial or cleanup are the usual choices, and the skin consultation is free.</p></details>
+    <details><summary>Do you do waxing for sensitive skin?</summary><p>Yes. We offer rica, liposoluble and regular wax, so you can pick the gentlest option.</p></details>
+    <details><summary>Do you serve both men and women?</summary><p>Yes. We are a unisex salon with separate service menus for each.</p></details>
+  </div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="cols">
+    <div><div class="big">Mehr Beauty Studio</div><a>Parlour and unisex salon</a></div>
+    <div><h4>Services</h4><ul><li>Hair treatments</li><li>Facials</li><li>Makeup &amp; bridal</li><li>Men's grooming</li></ul></div>
+    <div><h4>Visit</h4><ul><li>Your address, City</li><li>+91 98XXX XXXXX</li><li>Daily, 9 AM – 10 PM</li></ul></div>
+  </div>
+  <div class="legal">© 2026 Mehr Beauty Studio. Sample design with placeholder details.</div>
+</div></footer>
+
+<script>
+(function(){
+  var PHONE='91XXXXXXXXXX'; /* replace with the salon WhatsApp number, country code first, digits only */
+  var n=document.getElementById('name'),s=document.getElementById('service'),d=document.getElementById('date'),t=document.getElementById('time'),a=document.getElementById('send'),h=document.getElementById('hint');
+  function update(){
+    var name=n.value.trim();
+    if(!name){a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.style.opacity='.55';h.textContent='Enter your name to continue.';return}
+    var msg='Hi, I am '+name+'. I would like to book '+s.value+(d.value?' on '+d.value:'')+' at '+t.value+'.';
+    a.href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg);
+    a.removeAttribute('aria-disabled');a.style.opacity='1';h.textContent='Your message opens in WhatsApp. Nothing is sent until you press send there.';
+  }
+  [n,s,d,t].forEach(function(el){el.addEventListener('input',update);el.addEventListener('change',update)});
+  a.addEventListener('click',function(e){if(!n.value.trim()){e.preventDefault();n.focus()}});
+  document.getElementById('bookForm').addEventListener('submit',function(e){e.preventDefault()});
+  update();
+})();
+</script>
+
+</body></html>

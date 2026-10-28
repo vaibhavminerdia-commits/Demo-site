@@ -1,0 +1,156 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Mehr curved header: pill-shaped plum bar with curved end caps, gold-lined dropdowns, mobile menu. */
+.mhh{position:sticky;top:10px;z-index:9999;padding:0 16px;margin:10px 0;font-family:'Poppins','Segoe UI',Arial,sans-serif !important;font-size:15px;line-height:1.4;text-align:left}
+.mhh,.mhh *,.mhh *::before,.mhh *::after{box-sizing:border-box}
+.mhh ul{list-style:none !important;margin:0 !important;padding:0 !important}
+.mhh li{margin:0 !important;padding:0 !important;list-style:none !important}
+.mhh a,.mhh button{font-family:inherit !important;text-decoration:none !important;text-transform:none !important;letter-spacing:normal !important}
+.mhh-bar{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(100deg,#3b1030 0%,#5a1a47 100%);border-radius:999px;padding:8px;border:1px solid rgba(230,194,127,.55);box-shadow:0 16px 34px -16px rgba(59,16,48,.75)}
+
+/* left cap: logo */
+.mhh .mhh-logo{display:flex;align-items:center;gap:10px;background:#ffffff;border-radius:999px;padding:6px 22px 6px 6px;color:#1c0a14 !important;flex:none}
+.mhh .mhh-mark{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a63a62,#3b1030);color:#ffffff !important;display:grid;place-items:center;font-family:'DM Serif Display',Georgia,serif !important;font-size:22px}
+.mhh .mhh-name{display:grid;line-height:1.1}
+.mhh .mhh-name b{font-family:'DM Serif Display',Georgia,serif !important;font-weight:400;font-size:21px;color:#1c0a14 !important}
+.mhh .mhh-name small{font-size:10px;letter-spacing:.2em !important;text-transform:uppercase !important;color:#a63a62 !important;font-weight:600}
+
+/* menu */
+.mhh-nav{flex:1;display:flex;justify-content:center;min-width:0}
+.mhh-menu{display:flex;align-items:center;gap:2px}
+.mhh-menu>li{position:relative}
+.mhh .mhh-link{display:inline-flex;align-items:center;gap:6px;padding:10px 15px;border-radius:999px;background:transparent;border:0;cursor:pointer;color:#ffffff !important;font-size:15px;font-weight:500;line-height:1.2;transition:background .2s,color .2s}
+.mhh .mhh-link:hover,.mhh .mhh-has.mhh-open>.mhh-link,.mhh .mhh-has:hover>.mhh-link{background:rgba(255,255,255,.14);color:#f3d28f !important}
+.mhh .mhh-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.4;transition:transform .25s}
+.mhh .mhh-has:hover>.mhh-link svg,.mhh .mhh-has.mhh-open>.mhh-link svg{transform:rotate(180deg)}
+
+/* dropdown */
+.mhh-dd{position:absolute;top:calc(100% + 16px);left:50%;transform:translate(-50%,8px);min-width:290px;background:#ffffff;border-radius:24px;padding:10px;box-shadow:0 26px 50px -20px rgba(59,16,48,.55);border:1px solid #ecd9dd;opacity:0;visibility:hidden;transition:opacity .22s,transform .22s,visibility .22s;display:grid;gap:2px;z-index:5}
+.mhh-dd::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
+.mhh-dd::after{content:"";position:absolute;top:-7px;left:50%;width:14px;height:14px;background:#ffffff;border-left:1px solid #ecd9dd;border-top:1px solid #ecd9dd;transform:translateX(-50%) rotate(45deg)}
+.mhh-dd.mhh-wide{min-width:540px;grid-template-columns:1fr 1fr}
+.mhh-has:hover>.mhh-dd,.mhh-has:focus-within>.mhh-dd,.mhh-has.mhh-open>.mhh-dd{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.mhh .mhh-item{display:grid;gap:1px;padding:11px 14px;border-radius:16px;color:#1c0a14 !important;font-size:14px;font-weight:600;transition:background .15s}
+.mhh .mhh-item span{font-size:12px;font-weight:400;color:#5b4651 !important}
+.mhh .mhh-item:hover{background:#f6dde4;color:#7a1f44 !important}
+
+/* right cap: call to action */
+.mhh .mhh-cta{flex:none;display:inline-flex;align-items:center;gap:8px;background:#a63a62;color:#ffffff !important;font-weight:600;font-size:15px;padding:12px 26px;border-radius:999px;border:2px solid #e6c27f;transition:transform .2s,background .2s}
+.mhh .mhh-cta:hover{background:#8e2d52;transform:translateY(-1px)}
+.mhh-burger{display:none;flex:none;width:46px;height:46px;border-radius:50%;border:1px solid rgba(230,194,127,.6);background:transparent;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.mhh-burger i{display:block;width:20px;height:2px;background:#ffffff;border-radius:2px;transition:transform .25s,opacity .2s}
+.mhh.mhh-menu-open .mhh-burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mhh.mhh-menu-open .mhh-burger i:nth-child(2){opacity:0}
+.mhh.mhh-menu-open .mhh-burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media(max-width:940px){
+  .mhh-burger{display:flex}
+  .mhh .mhh-cta{margin-left:auto;padding:11px 20px}
+  .mhh-nav{position:absolute;left:16px;right:16px;top:calc(100% + 10px);display:none;background:#3b1030;border-radius:28px;padding:14px;border:1px solid rgba(230,194,127,.55);box-shadow:0 26px 50px -20px rgba(59,16,48,.8);max-height:calc(100vh - 110px);overflow-y:auto}
+  .mhh.mhh-menu-open .mhh-nav{display:block}
+  .mhh-menu{flex-direction:column;align-items:stretch;gap:2px}
+  .mhh .mhh-link{width:100%;justify-content:space-between;border-radius:16px;padding:13px 16px}
+  .mhh-dd,.mhh-dd.mhh-wide{position:static;transform:none;min-width:0;grid-template-columns:1fr;display:none;opacity:1;visibility:visible;box-shadow:none;border:0;background:rgba(255,255,255,.08);border-radius:18px;margin:2px 0 8px}
+  .mhh-dd::before,.mhh-dd::after{display:none}
+  .mhh-has:hover>.mhh-dd,.mhh-has:focus-within>.mhh-dd{transform:none}
+  .mhh-has.mhh-open>.mhh-dd{display:grid;transform:none}
+  .mhh .mhh-item{color:#ffffff !important}
+  .mhh .mhh-item span{color:#e9d3dc !important}
+  .mhh .mhh-item:hover{background:rgba(255,255,255,.14);color:#f3d28f !important}
+}
+@media(max-width:480px){
+  .mhh{padding:0 10px}
+  .mhh .mhh-name small{display:none}
+  .mhh .mhh-logo{padding-right:16px}
+  .mhh .mhh-cta{padding:10px 14px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.mhh *{transition:none !important}}
+</style>
+
+<header class="mhh" id="mhh">
+  <div class="mhh-bar">
+    <a class="mhh-logo" href="#mh-top" aria-label="Mehr Beauty Studio home">
+      <span class="mhh-mark">M</span>
+      <span class="mhh-name"><b>Mehr</b><small>Beauty Studio</small></span>
+    </a>
+
+    <nav class="mhh-nav" id="mhh-nav" aria-label="Main">
+      <ul class="mhh-menu">
+        <li><a class="mhh-link" href="#mh-top">Home</a></li>
+
+        <li class="mhh-has">
+          <button class="mhh-link" type="button" aria-expanded="false" aria-haspopup="true">Services <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+          <div class="mhh-dd mhh-wide">
+            <a class="mhh-item" href="#mh-services">Hair treatments<span>Keratin, smoothening, colour</span></a>
+            <a class="mhh-item" href="#mh-services">Facials &amp; cleanup<span>Hydra, gold, organic</span></a>
+            <a class="mhh-item" href="#mh-services">Party makeup<span>HD and airbrush looks</span></a>
+            <a class="mhh-item" href="#mh-services">Waxing &amp; threading<span>Rica and sensitive-skin wax</span></a>
+            <a class="mhh-item" href="#mh-services">Nails<span>Gel polish, extensions, art</span></a>
+            <a class="mhh-item" href="#mh-services">Body care &amp; mehndi<span>Polishing, spa, mehndi</span></a>
+          </div>
+        </li>
+
+        <li class="mhh-has">
+          <button class="mhh-link" type="button" aria-expanded="false" aria-haspopup="true">Bridal <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+          <div class="mhh-dd">
+            <a class="mhh-item" href="#mh-bridal">Pre-bridal care<span>4 to 6 weeks before the day</span></a>
+            <a class="mhh-item" href="#mh-bridal">Bridal day<span>Trial, makeup, hair, draping</span></a>
+            <a class="mhh-item" href="#mh-bridal">Family &amp; guests<span>Group makeup and styling</span></a>
+          </div>
+        </li>
+
+        <li class="mhh-has">
+          <button class="mhh-link" type="button" aria-expanded="false" aria-haspopup="true">For Men <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+          <div class="mhh-dd">
+            <a class="mhh-item" href="#mh-men">Haircut &amp; styling<span>Sharp cuts, clean finish</span></a>
+            <a class="mhh-item" href="#mh-men">Facial &amp; cleanup<span>Skin reset</span></a>
+            <a class="mhh-item" href="#mh-men">Pre-wedding grooming<span>Complete groom package</span></a>
+            <a class="mhh-item" href="#mh-men">Head &amp; body massage<span>Relax and unwind</span></a>
+          </div>
+        </li>
+
+        <li><a class="mhh-link" href="#mh-offers">Offers</a></li>
+        <li><a class="mhh-link" href="#mh-faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <a class="mhh-cta" href="#mh-book">Book Now</a>
+    <button class="mhh-burger" id="mhh-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mhh-nav"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<script>
+(function(){
+  var root=document.getElementById('mhh'),burger=document.getElementById('mhh-burger');
+  var groups=root.querySelectorAll('.mhh-has');
+  function closeGroups(except){
+    groups.forEach(function(g){
+      if(g!==except){g.classList.remove('mhh-open');g.querySelector('button').setAttribute('aria-expanded','false')}
+    });
+  }
+  groups.forEach(function(g){
+    var b=g.querySelector('button');
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!g.classList.contains('mhh-open');
+      closeGroups(g);
+      g.classList.toggle('mhh-open',open);
+      b.setAttribute('aria-expanded',open?'true':'false');
+    });
+  });
+  burger.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=!root.classList.contains('mhh-menu-open');
+    root.classList.toggle('mhh-menu-open',o);
+    burger.setAttribute('aria-expanded',o?'true':'false');
+  });
+  function closeAll(){
+    closeGroups(null);
+    root.classList.remove('mhh-menu-open');
+    burger.setAttribute('aria-expanded','false');
+  }
+  document.addEventListener('click',function(e){if(!root.contains(e.target))closeAll()});
+  root.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeAll)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+})();
+</script>
